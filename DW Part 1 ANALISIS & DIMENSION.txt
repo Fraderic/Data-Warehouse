@@ -1,0 +1,93 @@
+To Do List:
+
+- Measurement, nanalisa quanty
+- Dimension
+- Fact
+==================================
+
+Measurement Analisa
+
+1. Sales Transaction
+	- Total Earning : SUM(Quantity * GoodSellingPrice)
+	- Total Goods Sold : SUM(Quantity)
+
+2. Purchase Transaction
+	- Total Purchase Cost : SUM(Quantity * GoodsBuyingPrice)
+	- Total Goods Purchased : SUM(Quantity)
+
+3. Return Transaction Report 
+	- Total Goods Returned : SUM(Quantity)
+	- Number of Staff : COUNT (StaffID)
+
+4. subscription transaction Report
+	- Total subscription earning: SUM(BenefitPrice)
+	- The number of subscriber: COUNT (SubscriptionID) atau COUNT(CustomerID)
+
+*klo kek total itu pake sum aja misalnya klo kek ada quantity pake dia
+
+-- YANG MONTHLY DI SKIP DLU
+
+
+====================================
+
+DIMENSION
+
+1. CUSTOMER DIMENSION:
+	+ CustomerCode -> PK
+	+ CustomerID --> business key
+	+ CustomerName
+	- CustomerGender -> Derived Column (M == Male, F==Female)
+	- CustomerDOB
+	- CustomerAddress --> (Changing)
+	- CustomerPhone --> (Changing)
+	(diatas dari soal) (bawahnya kita tambahin hakl yang penting, TERUS TAROK ATAS DD TANDAIN PAKE + )
+
+2. GOODS DIMENSIONS
+	+ GoodsCode -> PK
+	+ GoodsID --> BUSINESS KEY
+	+ GoodsName
+	- GoodsSellingPrice --> (Historical)
+	- GoodsBuyingPrice --> (Historical)
+	- ValidFrom
+	- ValidTo
+
+3. Staff DIMENSIONS
+	+ StaffCode -> PK
+	+ StaffID --> BUSINESS KEY
+	+ StaffName
+	- StaffDOB
+	- StaffSalary --> (Historical)
+	- StaffGender -> Derived Column (M == Male, F==Female)
+	- ValidFrom
+	- ValidTo
+
+4. Supplier DIMENSIONS
+	+ SupplierCode -> PK
+	+ SupplierID --> BUSINESS KEY
+	+ SupplierName
+	- SupplierAddress --> (Changing)
+	- CityName (buat joint)
+
+5. Branch DIMENSIONS
+	+ BranchCode -> PK
+	+ BranchID --> BUSINESS KEY
+	- BranchAddres	--> (Changing)
+	- CityName (buat joint)
+
+6. Benefit DIMENSIONS
+	+ BenefitsCode -> PK
+	+ BenefitsID --> BUSINESS KEY
+	+ BenefitsName
+	- BenefitsPrice	--> (Historical)
+	- ValidFrom
+	- ValidTo
+
+7. TIME CODE (JANGAN LUPA HARUS ADA)
+	- TimeCode -->PK
+	- Date
+	- Month
+	- Quarter
+	- Year
+
+
+NEXTNYA BUAT PERIODIK BUAT TIME DIMENSION ^ sudah terbuat

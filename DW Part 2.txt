@@ -1,0 +1,79 @@
+Fact Table
+============
+- cari pov siapa aja, masukin PK dari dimension table
+- trs masukin measurement dari yang dah di analisis
+- jangan lupa masukin time dimension PKnya itu TimeCode krna pencatatan dw
+
+1. Sales Fact:
+	- GoodsCode -> 
+	- StaffCode -> 
+	- CustomerCode -> 
+	- BranchCode -> 
+	- TimeCode
+	- Total Earning : SUM(Quantity * GoodSellingPrice)
+	- Total Goods Sold : SUM(Quantity) 
+
+2. Return Fact:
+	- GoodsCode -> 
+	- StaffCode -> 
+	- BranchCode -> 
+	- SupplierCode -> 
+	- TimeCode
+	- Total Goods Returned : SUM(Quantity)
+	- Number of Staff : COUNT (StaffID)
+
+3. Purchase Fact:
+	- GoodsCode -> 
+	- StaffCode -> 
+	- BranchCode ->
+	- SupplierCode  -> 
+	- TimeCode 
+	- Total Purchase Cost : SUM(Quantity * GoodsBuyingPrice)
+	- Total Goods Purchased : SUM(Quantity)
+
+4. Subscription Fact:
+	- CustomerCode -> 
+	- StaffCode -> 
+	- BenefitsCode -> 
+	- TimeCode
+	- Total subscription earning: SUM(BenefitPrice)
+	- The number of subscriber: COUNT (SubscriptionID) atau COUNT(CustomerID)
+
+===========================
+
+Analisa Karakter Dimension
+- Derivied Column --> standarisasi (M,L --> male/female dkk)
+- Changing (datanya bisa berubah, tapi value yang lama ke-overwrite ( data lama ilang))
+- Historical (datanya berubah, tapi data yang lama tetap TERSIMPAN)
+- Fixed ( Ga bisa diubah)
+
+note:
+
+kalau historical harus ada 2 tambahan di dimension
+- ValidFrom
+- ValidTo
+
+=====================
+
+Setelah dah complete semua next step adalah:
+
+CREATE TABLE OLAP
+
+
+cara import / resoter database
+
+--> KLIK kanan database terus restore pilih path ok--> ok
+
+UNTUK DI QUERRNYA DI FACT
+
+-- ITU MEASUERMENT PAKE BIGINT
+
+
+lalu tambah FILTERTIMESTAMP
+
+CREATE TABLE FilterTimeStamp (
+TableName VARCHAR (50),
+LastETL DATETIME
+)
+
+WAJIN
